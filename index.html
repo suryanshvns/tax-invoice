@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tax Invoice - Zoop Web Services</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Times New Roman", Times, serif;
+            line-height: 1.35;
+            color: #000;
+        }
+
+        html,
+        body {
+            overflow-x: hidden;
+        }
+
+        .invoice-container {
+            min-height: 100vh;
+            background-color: #ffffff;
+            padding: 20px;
+        }
+
+        .invoice-wrapper {
+            width: 210mm;
+            margin: 0 auto;
+            background: #fff;
+            padding: 16px 14px;
+            border: 1px solid #000;
+            font-size: 12px;
+        }
+
+        .invoice-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 10px;
+        }
+
+        .invoice-header .column1 {
+            flex: 1;
+        }
+
+        .logo-section {
+            width: 165px;
+            height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .company-info {
+            flex: 1;
+            text-align: center;
+            margin-left: 20px;
+        }
+
+        .company-info h1 {
+            margin: 0 0 4px 0;
+            font-size: 14px;
+            font-weight: bold;
+            white-space: nowrap;
+            font-family: Arial, sans-serif;
+        }
+
+        .company-info h2 {
+            font-size: 10px;
+            font-weight: bold;
+            font-family: Arial, sans-serif;
+        }
+
+        .company-info h4 {
+            margin: 0;
+            font-size: 8px;
+            white-space: nowrap;
+            font-family: Arial, sans-serif;
+        }
+
+        .original-label {
+            font-weight: bold;
+            font-size: 10px;
+            font-family: "Trebuchet MS", sans-serif;
+        }
+
+        .invoice-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            margin-bottom: 8px;
+            border: 0.5px solid #000;
+        }
+
+        .left-section,
+        .right-section {
+            padding: 10px;
+        }
+
+        .right-section {
+            border-left: 0.5px solid #000;
+        }
+
+        .detail-group h3 {
+            margin: 0 0 8px 0;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .detail-row {
+            display: flex;
+            margin-bottom: 4px;
+            font-size: 11px;
+        }
+
+        .detail-row .label {
+            width: 160px;
+            font-weight: normal;
+            flex-shrink: 0;
+        }
+
+        .detail-row .value {
+            font-weight: normal;
+            flex: 1;
+        }
+
+        .footer-section {
+            grid-column: 1 / span 11;
+            padding-top: 10px;
+            border-top: 0.5px solid #333;
+        }
+
+        .invoice-grid {
+            display: grid;
+            grid-template-columns: 4fr 1.1fr 1.1fr 1.1fr 0.9fr 0.9fr 0.9fr 0.9fr 0.9fr 0.9fr 1.2fr;
+            border: 0.5px solid #000;
+            border-collapse: collapse;
+        }
+
+        .invoice-grid>div {
+            border: 0.5px solid #000;
+            padding: 6px 8px;
+            font-size: 12px;
+        }
+
+        .invoice-grid>div:nth-child(11n + 1) { text-align: left; }
+        .invoice-grid>div:nth-child(11n + 5),
+        .invoice-grid>div:nth-child(11n + 7),
+        .invoice-grid>div:nth-child(11n + 9) { text-align: center; }
+        .invoice-grid>div:nth-child(11n + 2),
+        .invoice-grid>div:nth-child(11n + 3),
+        .invoice-grid>div:nth-child(11n + 4),
+        .invoice-grid>div:nth-child(11n + 6),
+        .invoice-grid>div:nth-child(11n + 8),
+        .invoice-grid>div:nth-child(11n + 10),
+        .invoice-grid>div:nth-child(11n + 11) { text-align: right; }
+
+        .header {
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .total {
+            font-weight: bold;
+            background: #fff;
+        }
+
+        .footer {
+            margin-top: 2px;
+            font-size: 12px;
+        }
+
+        .signature {
+            text-align: right;
+            font-style: italic;
+            margin-top: 20px;
+        }
+
+        @media print {
+            .invoice-container {
+                background: white;
+                padding: 0;
+            }
+
+            .invoice-wrapper {
+                box-shadow: none;
+                border: 1px solid #000;
+                margin: 0;
+                width: auto;
+                font-size: 12px;
+            }
+
+            .invoice-header {
+                flex-direction: row;
+                text-align: left;
+            }
+
+            .company-info {
+                text-align: center;
+                margin-left: 20px;
+            }
+
+            .invoice-details {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .right-section {
+                border-left: 1px solid #333;
+                border-top: none;
+            }
+
+            .detail-row {
+                flex-direction: row;
+            }
+
+            .detail-row .label {
+                width: 120px;
+                font-weight: normal;
+                margin-bottom: 0;
+            }
+
+            .invoice-grid {
+                border: 1px solid #000;
+                font-size: 12px;
+            }
+
+            .invoice-grid>div {
+                border: 1px solid #000;
+                padding: 4px 6px;
+                font-size: 12px;
+            }
+
+            .footer-section {
+                font-size: 12px;
+                border-top: 1px solid #000;
+            }
+
+            .footer {
+                font-size: 12px;
+            }
+
+            .signature {
+                text-align: right;
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="invoice-container">
+        <div class="invoice-wrapper">
+            <div class="invoice-header">
+                <div class="logo-section column1">
+                    <img class="logo-section " src="assets/zoop.webp" alt="">
+                </div>
+                <div class="company-info column1">
+                    <h1>Zoop Web Services Private Limited</h1>
+                    <h4>1st Floor, B-2/11, Mohan Cooperative Industrial Estate, Delhi, 110044</h4>
+                    <h2>Tax Invoice</h2>
+                    <p class="original-label">ORIGINAL For Recipient</p>
+                </div>
+                <div class="column1"></div>
+            </div>
+
+            <div class="invoice-details">
+                <div class="left-section">
+                    <div class="detail-group">
+                        <h3>Tax Invoice on behalf of Restaurant-</h3>
+                        <div class="detail-row">
+                            <span class="label">Legal Entity Name :</span>
+                            <span class="value">Jubilant Foodworks Limited</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="label">Restaurant Name :</span>
+                            <span class="value">Dominos</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="label">Restaurant Address :</span>
+                            <span class="value">Near Devatray Hospital, Ramghat Road</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="label">Restaurant GSTIN :</span>
+                            <span class="value">XXXXXXXXXXXXXXXX</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="label">Restaurant FSSAI :</span>
+                            <span class="value">XXXXXXXXXX</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="label">Order ID :</span>
+                            <span class="value">XXXXXXXXX</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="label">Service Description :</span>
+                            <span class="value">Restaurant Service</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="right-section">
+                    <div class="detail-group">
+                        <h3>Detail of Receiver (Billed to)</h3>
+                        <div class="detail-row">
+                            <span class="label">Customer Name :</span>
+                            <span class="value">XYZ</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="label">Delivery Address :</span>
+                            <span class="value">Seat: S6-37 • Train: EXPRESS, 202001</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="label">Invoice Date :</span>
+                            <span class="value">Delivery Date DD-MM-YYYY</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="label">Invoice No. :</span>
+                            <span class="value">XXXXXXXXX</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="label">Place of Supply:</span>
+                            <span class="value">Delhi (7)</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="label">HSN Code :</span>
+                            <span class="value">996331</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="label">Customer GSTIN:</span>
+                            <span class="value">Unregistered</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="invoice-grid">
+                <div class="header">Particulars</div>
+                <div class="header">Gross value</div>
+                <div class="header">Discount</div>
+                <div class="header">Net value</div>
+                <div class="header">CGST (Rate)</div>
+                <div class="header">CGST (INR)</div>
+                <div class="header">SGST (Rate)</div>
+                <div class="header">SGST (INR)</div>
+                <div class="header">IGST (Rate)</div>
+                <div class="header">IGST (INR)</div>
+                <div class="header">Total</div>
+
+                <div>30 x Butter Tawa Roti</div>
+                <div>300</div>
+                <div>6.25</div>
+                <div>293.75</div>
+                <div>2.5%</div>
+                <div>7.34</div>
+                <div>2.5%</div>
+                <div>7.34</div>
+                <div>N.A.</div>
+                <div>N.A.</div>
+                <div>308.44</div>
+
+                <div>3 x Dal Makhani</div>
+                <div>660</div>
+                <div>13.75</div>
+                <div>646.25</div>
+                <div>2.5%</div>
+                <div>16.16</div>
+                <div>2.5%</div>
+                <div>16.16</div>
+                <div>N.A.</div>
+                <div>N.A.</div>
+                <div>678.56</div>
+
+                <div class="total" style="grid-column: span 1">Item(s) Total Value</div>
+                <div class="total">960</div>
+                <div class="total">20</div>
+                <div class="total">940</div>
+                <div></div>
+                <div class="total">23.5</div>
+                <div></div>
+                <div class="total">23.5</div>
+                <div></div>
+                <div></div>
+                <div class="total">987</div>
+
+                <div class="footer-section">
+                    <div class="footer" style="grid-column: 1 / span 11">
+                        <strong>Amount (in words):</strong> Nine Hundred Eighty Seven Rupees And Zero Paisa Only
+                    </div>
+                    <div class="footer" style="grid-column: 1 / span 11">
+                        <strong>Amount of INR 987 settled through digital mode/payment received against Order ID: 6465372117 dated 2024-12-25.</strong>
+                    </div>
+                    <div class="footer" style="grid-column: 1 / span 11">
+                        <strong>Supply attracts reverse charge :</strong> No
+                    </div>
+                    <div class="footer" style="grid-column: 1 / span 11">
+                        <h4>For Zoop Web Services Private Limited</h4>
+                        Zoop CIN : U72200DL2014PTC268162 Zoop PAN : AAACZ7586R Zoop GSTIN: 07AAACZ7586R1Z7
+                    </div>
+                    <div class="footer" style="grid-column: 1 / span 11">
+                        Email – operations@zoopindia.com, Phone – 8010802222, Web Site – www.ZoopIndia.com
+                    </div>
+                    <div class="signature" style="grid-column: 1 / span 11">
+                        Authorised Signatory
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

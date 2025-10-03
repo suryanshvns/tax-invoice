@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tax Invoice - Zoop</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+      color: #000;
+      margin: 0;
+      padding: 0;
+    }
+
+    .invoice-container {
+      min-height: 100vh;
+      background-color: #ffffff;
+      padding: 20px;
+    }
+
+    .invoice-wrapper {
+      width: 210mm;
+      margin: 0 auto;
+      border: 1px solid #000;
+      padding: 15px;
+    }
+
+    .invoice-header {
+      position: relative;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    .invoice-header .title-center {
+      display: inline-block;
+    }
+
+    .invoice-header .top-text {
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    .invoice-header .main-title {
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .invoice-header .header-right {
+      position: absolute;
+      bottom: -14px;
+      right: 0;
+    }
+
+    .invoice-header img {
+      max-width: 120px;
+      height: auto;
+    }
+
+    .section {
+      margin-top: 12px;
+      margin-bottom: 8px;
+      font-weight: bold;
+      background: #f0f0f0;
+      padding: 4px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 2px 8px;
+      margin-bottom: 10px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 12px;
+    }
+
+    table th,
+    table td {
+      border: 1px solid #000;
+      padding: 6px;
+      text-align: left;
+    }
+
+    table th {
+      background: #f9f9f9;
+      font-weight: bold;
+    }
+
+    .text-right {
+      text-align: right;
+    }
+
+    .signature {
+      margin-top: 40px;
+      text-align: right;
+    }
+
+    .footer {
+      font-size: 10px;
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    @media print {
+      .invoice-container {
+        background: white;
+        padding: 0;
+      }
+
+      .invoice-wrapper {
+        box-shadow: none;
+        border: 1px solid #000;
+        margin: 0;
+        width: auto;
+        font-size: 12px;
+      }
+
+      .invoice-header {
+        text-align: center;
+      }
+
+      .section {
+        background: #f0f0f0;
+        font-weight: bold;
+      }
+
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      table th,
+      table td {
+        border: 1px solid #000;
+        padding: 6px;
+        font-size: 12px;
+      }
+
+      table th {
+        background: #f9f9f9;
+        font-weight: bold;
+      }
+
+      .text-right {
+        text-align: right;
+      }
+
+      .signature {
+        text-align: right;
+        margin-top: 40px;
+      }
+
+      .footer {
+        font-size: 10px;
+        text-align: center;
+        margin-top: 20px;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 2px 8px;
+        margin-bottom: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="invoice-container">
+    <div class="invoice-wrapper">
+    <div class="invoice-header">
+      <div class="title-center">
+        <div class="main-title">Tax Invoice</div>
+        <div class="top-text">ORIGINAL FOR RECIPIENT</div>
+      </div>
+      <div class="header-right">
+        <img src="assets/zoop.webp" alt="Zoop Logo">
+      </div>
+    </div>
+    <div class="section">Zoop Web Services Private Limited</div>
+    <div class="grid">
+      <span>Address:</span> <span>1st Floor, B-2/11, Mohan Cooperative Industrial Estate, Delhi, 110044</span>
+      <span>PAN:</span> <span>AAACZ7586R</span>
+      <span>State:</span> <span>Delhi</span>
+      <span>CIN:</span> <span>U72200DL2014PTC268162</span>
+      <span>Email ID:</span> <span>operations@zoopindia.com</span>
+      <span>GSTIN:</span> <span>07AAACZ7586R1Z7</span>
+      <span>Invoice No:</span> <span>ZPUPT2025012301</span>
+      <span>Invoice Date:</span> <span>2025-08-25</span>
+    </div>
+    <div class="section">Customer Details</div>
+    <div class="grid">
+      <span>Name:</span> <span>Harsh Srivastava</span>
+      <span>GSTIN:</span> <span>UNREGISTERED</span>
+      <span>Delivery Address:</span> <span>C7-1505, 15th Floor, Tower C7, Ghaziabad - 201009</span>
+      <span>Place of Supply:</span> <span>Delhi(7)</span>
+    </div>
+    <div class="section">Service Details</div>
+    <div class="grid">
+      <span>HSN Code:</span> <span>999799</span>
+      <span>Supply Description:</span> <span>Other Services N.E.C</span>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Sr.No</th>
+          <th>Particulars</th>
+          <th>Taxable Amount</th>
+          <th>CGST</th>
+          <th>SGST</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>
+            Order ID : 7208484616 <br>
+            Order Date : 2025-08-25 <br>
+            Platform Fee
+          </td>
+          <td class="text-right">10.00</td>
+          <td class="text-right">0.90</td>
+          <td class="text-right">0.90</td>
+          <td class="text-right">11.80</td>
+        </tr>
+        <tr>
+          <td colspan="2" class="text-right"><strong>Total</strong></td>
+          <td class="text-right"><strong>10.00</strong></td>
+          <td class="text-right"><strong>0.90</strong></td>
+          <td class="text-right"><strong>0.90</strong></td>
+          <td class="text-right"><strong>11.80</strong></td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="margin-top:10px;">Amount of ₹11.8 settled through digital mode/payment received against Order ID 7208484616 dated (2025-08-25)</p>
+    <p>Tax is not payable on reverse charge basis</p>
+    <div class="signature">
+      For Zoop Web Services Private Limited<br><br><br>
+      <strong>Authorized Signatory</strong>
+    </div>
+    <div class="footer">
+      Zoop CIN : U72200DL2014PTC268162 Zoop PAN : AAACZ7586R Zoop GSTIN: 07AAACZ7586R1Z7 <br>
+      Email – operations@zoopindia.com, Phone – 8010802222, Web Site – www.ZoopIndia.com
+    </div>
+    </div>
+  </div>
+</body>
+
+</html>
