@@ -13,7 +13,7 @@
         }
 
         body {
-            font-family: "Times New Roman", Times, serif;
+            font-family: Roboto, sans-serif;
             line-height: 1.35;
             color: #000;
         }
@@ -26,7 +26,7 @@
         .invoice-container {
             min-height: 100vh;
             background-color: #ffffff;
-            padding: 20px;
+            padding: 30px;
         }
 
         .invoice-wrapper {
@@ -50,8 +50,8 @@
         }
 
         .logo-section {
-            width: 165px;
-            height: 72px;
+            width: 120px;
+            height: auto;
             display: flex;
             align-items: center;
             justify-content: flex-start;
@@ -68,26 +68,26 @@
             font-size: 14px;
             font-weight: bold;
             white-space: nowrap;
-            font-family: Arial, sans-serif;
+            font-family: Roboto, sans-serif;
         }
 
         .company-info h2 {
-            font-size: 10px;
+            font-size: 12px;
             font-weight: bold;
-            font-family: Arial, sans-serif;
+            font-family: Roboto, sans-serif;
         }
 
         .company-info h4 {
             margin: 0;
-            font-size: 8px;
+            font-size: 10px;
             white-space: nowrap;
-            font-family: Arial, sans-serif;
+            font-family: Roboto, sans-serif;
         }
 
         .original-label {
             font-weight: bold;
-            font-size: 10px;
-            font-family: "Trebuchet MS", sans-serif;
+            font-size: 12px;
+            font-family: Roboto, sans-serif;
         }
 
         .invoice-details {
@@ -116,12 +116,12 @@
         .detail-row {
             display: flex;
             margin-bottom: 4px;
-            font-size: 11px;
+            font-size: 12px;
         }
 
         .detail-row .label {
             width: 160px;
-            font-weight: normal;
+            font-weight: bold;
             flex-shrink: 0;
         }
 
@@ -131,35 +131,27 @@
         }
 
         .footer-section {
-            grid-column: 1 / span 11;
+            grid-column: 1 / span 9;
             padding-top: 10px;
-            border-top: 0.5px solid #333;
+            border-top: 0.5px solid #ccc;
         }
 
         .invoice-grid {
             display: grid;
-            grid-template-columns: 4fr 1.1fr 1.1fr 1.1fr 0.9fr 0.9fr 0.9fr 0.9fr 0.9fr 0.9fr 1.2fr;
-            border: 0.5px solid #000;
+            grid-template-columns: 4fr 1.1fr 1.1fr 1.1fr 0.9fr 0.9fr 0.9fr 0.9fr 1.2fr;
+            border: 0.5px solid #ccc;
             border-collapse: collapse;
         }
 
         .invoice-grid>div {
-            border: 0.5px solid #000;
+            border: 0.5px solid #ccc;
             padding: 6px 8px;
             font-size: 12px;
+            text-align: center;
         }
 
-        .invoice-grid>div:nth-child(11n + 1) { text-align: left; }
-        .invoice-grid>div:nth-child(11n + 5),
-        .invoice-grid>div:nth-child(11n + 7),
-        .invoice-grid>div:nth-child(11n + 9) { text-align: center; }
-        .invoice-grid>div:nth-child(11n + 2),
-        .invoice-grid>div:nth-child(11n + 3),
-        .invoice-grid>div:nth-child(11n + 4),
-        .invoice-grid>div:nth-child(11n + 6),
-        .invoice-grid>div:nth-child(11n + 8),
-        .invoice-grid>div:nth-child(11n + 10),
-        .invoice-grid>div:nth-child(11n + 11) { text-align: right; }
+        .invoice-grid>div:nth-child(9n + 1) { text-align: left; }
+        .invoice-grid>.header:nth-child(1) { text-align: center; }
 
         .header {
             font-weight: bold;
@@ -177,15 +169,14 @@
         }
 
         .signature {
-            text-align: right;
-            font-style: italic;
+            text-align: center;
             margin-top: 20px;
         }
 
         @media print {
             .invoice-container {
                 background: white;
-                padding: 0;
+                padding: 20px;
             }
 
             .invoice-wrapper {
@@ -246,7 +237,7 @@
             }
 
             .signature {
-                text-align: right;
+                text-align: center;
                 font-size: 12px;
             }
         }
@@ -272,34 +263,30 @@
             <div class="invoice-details">
                 <div class="left-section">
                     <div class="detail-group">
-                        <h3>Tax Invoice on behalf of Restaurant-</h3>
-                        <div class="detail-row">
-                            <span class="label">Legal Entity Name :</span>
-                            <span class="value">Jubilant Foodworks Limited</span>
-                        </div>
+                        <h3>Tax Invoice on behalf of -</h3>
                         <div class="detail-row">
                             <span class="label">Restaurant Name :</span>
-                            <span class="value">Dominos</span>
+                            <span class="value">Radha Krishna Carters And Hotel</span>
                         </div>
                         <div class="detail-row">
                             <span class="label">Restaurant Address :</span>
-                            <span class="value">Near Devatray Hospital, Ramghat Road</span>
+                            <span class="value">In Front Of Railway Hospital, Raily Nagar Sai Baba Ward No 20, Maal Dhakka</span>
                         </div>
                         <div class="detail-row">
                             <span class="label">Restaurant GSTIN :</span>
-                            <span class="value">XXXXXXXXXXXXXXXX</span>
+                            <span class="value">07AAACZ7586R1Z7</span>
                         </div>
                         <div class="detail-row">
                             <span class="label">Restaurant FSSAI :</span>
-                            <span class="value">XXXXXXXXXX</span>
+                            <span class="value">21518274000600</span>
                         </div>
                         <div class="detail-row">
                             <span class="label">Order ID :</span>
-                            <span class="value">XXXXXXXXX</span>
+                            <span class="value">ZO97950243583652</span>
                         </div>
                         <div class="detail-row">
                             <span class="label">Service Description :</span>
-                            <span class="value">Restaurant Service</span>
+                            <span class="value">Train Food Delivery Service</span>
                         </div>
                     </div>
                 </div>
@@ -309,23 +296,23 @@
                         <h3>Detail of Receiver (Billed to)</h3>
                         <div class="detail-row">
                             <span class="label">Customer Name :</span>
-                            <span class="value">XYZ</span>
+                            <span class="value">Laxman</span>
                         </div>
                         <div class="detail-row">
                             <span class="label">Delivery Address :</span>
-                            <span class="value">Seat: S6-37 • Train: EXPRESS, 202001</span>
+                            <span class="value">Coach: B2/33 • Train: 22648 • Station: Balharshah (BPQ)</span>
                         </div>
                         <div class="detail-row">
                             <span class="label">Invoice Date :</span>
-                            <span class="value">Delivery Date DD-MM-YYYY</span>
+                            <span class="value">3rd Oct 25, 12:40 PM</span>
                         </div>
                         <div class="detail-row">
                             <span class="label">Invoice No. :</span>
-                            <span class="value">XXXXXXXXX</span>
+                            <span class="value">128128282</span>
                         </div>
                         <div class="detail-row">
                             <span class="label">Place of Supply:</span>
-                            <span class="value">Delhi (7)</span>
+                            <span class="value">Maharashtra (27)</span>
                         </div>
                         <div class="detail-row">
                             <span class="label">HSN Code :</span>
@@ -348,65 +335,88 @@
                 <div class="header">CGST (INR)</div>
                 <div class="header">SGST (Rate)</div>
                 <div class="header">SGST (INR)</div>
-                <div class="header">IGST (Rate)</div>
-                <div class="header">IGST (INR)</div>
                 <div class="header">Total</div>
 
-                <div>30 x Butter Tawa Roti</div>
-                <div>300</div>
-                <div>6.25</div>
-                <div>293.75</div>
+                <div>1 x Kadhai Paneer</div>
+                <div>220</div>
+                <div>0</div>
+                <div>220</div>
                 <div>2.5%</div>
-                <div>7.34</div>
+                <div>5.5</div>
                 <div>2.5%</div>
-                <div>7.34</div>
-                <div>N.A.</div>
-                <div>N.A.</div>
-                <div>308.44</div>
+                <div>5.5</div>
+                <div>231</div>
 
-                <div>3 x Dal Makhani</div>
-                <div>660</div>
-                <div>13.75</div>
-                <div>646.25</div>
+                <div>5 x Tawa Roti</div>
+                <div>90</div>
+                <div>0</div>
+                <div>90</div>
                 <div>2.5%</div>
-                <div>16.16</div>
+                <div>2.25</div>
                 <div>2.5%</div>
-                <div>16.16</div>
-                <div>N.A.</div>
-                <div>N.A.</div>
-                <div>678.56</div>
+                <div>2.25</div>
+                <div>94.5</div>
+
+                <div>1 x Veg Biryani</div>
+                <div>220</div>
+                <div>0</div>
+                <div>220</div>
+                <div>2.5%</div>
+                <div>5.5</div>
+                <div>2.5%</div>
+                <div>5.5</div>
+                <div>231</div>
 
                 <div class="total" style="grid-column: span 1">Item(s) Total Value</div>
-                <div class="total">960</div>
-                <div class="total">20</div>
-                <div class="total">940</div>
+                <div class="total">530</div>
+                <div class="total">0</div>
+                <div class="total">530</div>
                 <div></div>
-                <div class="total">23.5</div>
+                <div class="total">13.25</div>
                 <div></div>
-                <div class="total">23.5</div>
+                <div class="total">13.25</div>
+                <div class="total">556.5</div>
+
+                <div style="grid-column: span 1">Restaurant Packaging Charge</div>
+                <div>0</div>
+                <div>0</div>
+                <div>0</div>
+                <div></div>
+                <div>0</div>
+                <div></div>
+                <div>0</div>
+                <div>0</div>
+
+                <div class="total" style="grid-column: span 1">Total Value</div>
                 <div></div>
                 <div></div>
-                <div class="total">987</div>
+                <div class="total">530</div>
+                <div></div>
+                <div class="total">13.25</div>
+                <div></div>
+                <div class="total">13.25</div>
+                <div class="total">556.5</div>
 
                 <div class="footer-section">
-                    <div class="footer" style="grid-column: 1 / span 11">
-                        <strong>Amount (in words):</strong> Nine Hundred Eighty Seven Rupees And Zero Paisa Only
+                    <div class="footer" style="grid-column: 1 / span 9">
+                        <strong>Amount (in words):</strong> Five Hundred Fifty Six Rupees and Fifty Paisa Only
                     </div>
-                    <div class="footer" style="grid-column: 1 / span 11">
-                        <strong>Amount of INR 987 settled through digital mode/payment received against Order ID: 6465372117 dated 2024-12-25.</strong>
+                    <div class="footer" style="grid-column: 1 / span 9; margin-top: 8px;">
+                        <strong>Amount of INR 556.5 settled through digital mode/payment received against Order ID: ZO97950243583652 dated 3rd Oct 25, 12:40 PM.</strong>
                     </div>
-                    <div class="footer" style="grid-column: 1 / span 11">
+                    <div class="footer" style="grid-column: 1 / span 9">
                         <strong>Supply attracts reverse charge :</strong> No
                     </div>
-                    <div class="footer" style="grid-column: 1 / span 11">
+                    <div class="footer" style="grid-column: 1 / span 9; margin-top: 8px;">
                         <h4>For Zoop Web Services Private Limited</h4>
+                        <br>
                         Zoop CIN : U72200DL2014PTC268162 Zoop PAN : AAACZ7586R Zoop GSTIN: 07AAACZ7586R1Z7
                     </div>
-                    <div class="footer" style="grid-column: 1 / span 11">
-                        Email – operations@zoopindia.com, Phone – 8010802222, Web Site – www.ZoopIndia.com
+                    <div class="footer" style="grid-column: 1 / span 9">
+                        Email – care@zoopindia.com , Phone – 8010802222, Web Site – www.ZoopIndia.com
                     </div>
-                    <div class="signature" style="grid-column: 1 / span 11">
-                        Authorised Signatory
+                    <div class="signature" style="grid-column: 1 / span 9">
+                        <strong>This is an electronically generated invoice and does not require any signature.</strong>
                     </div>
                 </div>
             </div>
