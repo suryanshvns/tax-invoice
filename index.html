@@ -117,12 +117,21 @@
             display: flex;
             margin-bottom: 4px;
             font-size: 12px;
+            align-items: center;
         }
 
         .detail-row .label {
             width: 160px;
             font-weight: bold;
             flex-shrink: 0;
+        }
+
+        .detail-row .colon {
+            width: 30px;
+            text-align: center;
+            font-weight: bold;
+            flex-shrink: 0;
+            margin-left: -30px;
         }
 
         .detail-row .value {
@@ -208,6 +217,7 @@
 
             .detail-row {
                 flex-direction: row;
+                align-items: center;
             }
 
             .detail-row .label {
@@ -216,20 +226,33 @@
                 margin-bottom: 0;
             }
 
+            .detail-row .colon {
+                width: 30px;
+                text-align: center;
+                font-weight: bold;
+                flex-shrink: 0;
+                margin-left: -30px;
+            }
+
+            .detail-row .value {
+                font-weight: normal;
+                flex: 1;
+            }
+
             .invoice-grid {
-                border: 1px solid #000;
+                border: 0.2px solid #000;
                 font-size: 12px;
             }
 
             .invoice-grid>div {
-                border: 1px solid #000;
+                border: 0.2px solid #000;
                 padding: 4px 6px;
                 font-size: 12px;
             }
 
             .footer-section {
                 font-size: 12px;
-                border-top: 1px solid #000;
+                border-top: 0.2px solid #000;
             }
 
             .footer {
@@ -265,27 +288,33 @@
                     <div class="detail-group">
                         <h3>Tax Invoice on behalf of -</h3>
                         <div class="detail-row">
-                            <span class="label">Restaurant Name :</span>
+                            <span class="label">Restaurant Name</span>
+                            <span class="colon">:</span>
                             <span class="value">Radha Krishna Carters And Hotel</span>
                         </div>
                         <div class="detail-row">
-                            <span class="label">Restaurant Address :</span>
+                            <span class="label">Restaurant Address</span>
+                            <span class="colon">:</span>
                             <span class="value">In Front Of Railway Hospital, Raily Nagar Sai Baba Ward No 20, Maal Dhakka</span>
                         </div>
                         <div class="detail-row">
-                            <span class="label">Restaurant GSTIN :</span>
+                            <span class="label">Restaurant GSTIN</span>
+                            <span class="colon">:</span>
                             <span class="value">07AAACZ7586R1Z7</span>
                         </div>
                         <div class="detail-row">
-                            <span class="label">Restaurant FSSAI :</span>
+                            <span class="label">Restaurant FSSAI</span>
+                            <span class="colon">:</span>
                             <span class="value">21518274000600</span>
                         </div>
                         <div class="detail-row">
-                            <span class="label">Order ID :</span>
+                            <span class="label">Order ID</span>
+                            <span class="colon">:</span>
                             <span class="value">ZO97950243583652</span>
                         </div>
                         <div class="detail-row">
-                            <span class="label">Service Description :</span>
+                            <span class="label">Service Description</span>
+                            <span class="colon">:</span>
                             <span class="value">Train Food Delivery Service</span>
                         </div>
                     </div>
@@ -295,31 +324,38 @@
                     <div class="detail-group">
                         <h3>Detail of Receiver (Billed to)</h3>
                         <div class="detail-row">
-                            <span class="label">Customer Name :</span>
+                            <span class="label">Customer Name</span>
+                            <span class="colon">:</span>
                             <span class="value">Laxman</span>
                         </div>
                         <div class="detail-row">
-                            <span class="label">Delivery Address :</span>
+                            <span class="label">Delivery Address</span>
+                            <span class="colon">:</span>
                             <span class="value">Coach: B2/33 • Train: 22648 • Station: Balharshah (BPQ)</span>
                         </div>
                         <div class="detail-row">
-                            <span class="label">Invoice Date :</span>
+                            <span class="label">Invoice Date</span>
+                            <span class="colon">:</span>
                             <span class="value">3rd Oct 25, 12:40 PM</span>
                         </div>
                         <div class="detail-row">
-                            <span class="label">Invoice No. :</span>
+                            <span class="label">Invoice No.</span>
+                            <span class="colon">:</span>
                             <span class="value">128128282</span>
                         </div>
                         <div class="detail-row">
-                            <span class="label">Place of Supply:</span>
+                            <span class="label">Place of Supply</span>
+                            <span class="colon">:</span>
                             <span class="value">Maharashtra (27)</span>
                         </div>
                         <div class="detail-row">
-                            <span class="label">HSN Code :</span>
+                            <span class="label">HSN Code</span>
+                            <span class="colon">:</span>
                             <span class="value">996331</span>
                         </div>
                         <div class="detail-row">
-                            <span class="label">Customer GSTIN:</span>
+                            <span class="label">Customer GSTIN</span>
+                            <span class="colon">:</span>
                             <span class="value">Unregistered</span>
                         </div>
                     </div>
@@ -328,9 +364,9 @@
 
             <div class="invoice-grid">
                 <div class="header">Particulars</div>
-                <div class="header">Gross value</div>
+                <div class="header">Gross Value</div>
                 <div class="header">Discount</div>
-                <div class="header">Net value</div>
+                <div class="header">Net Value</div>
                 <div class="header">CGST (Rate)</div>
                 <div class="header">CGST (INR)</div>
                 <div class="header">SGST (Rate)</div>
@@ -338,86 +374,91 @@
                 <div class="header">Total</div>
 
                 <div>1 x Kadhai Paneer</div>
-                <div>220</div>
-                <div>0</div>
-                <div>220</div>
+                <div>₹220</div>
+                <div>₹0</div>
+                <div>₹220</div>
                 <div>2.5%</div>
-                <div>5.5</div>
+                <div>₹5.5</div>
                 <div>2.5%</div>
-                <div>5.5</div>
-                <div>231</div>
+                <div>₹5.5</div>
+                <div>₹231</div>
 
                 <div>5 x Tawa Roti</div>
-                <div>90</div>
-                <div>0</div>
-                <div>90</div>
+                <div>₹90</div>
+                <div>₹0</div>
+                <div>₹90</div>
                 <div>2.5%</div>
-                <div>2.25</div>
+                <div>₹2.25</div>
                 <div>2.5%</div>
-                <div>2.25</div>
-                <div>94.5</div>
+                <div>₹2.25</div>
+                <div>₹94.5</div>
 
                 <div>1 x Veg Biryani</div>
-                <div>220</div>
-                <div>0</div>
-                <div>220</div>
+                <div>₹220</div>
+                <div>₹0</div>
+                <div>₹220</div>
                 <div>2.5%</div>
-                <div>5.5</div>
+                <div>₹5.5</div>
                 <div>2.5%</div>
-                <div>5.5</div>
-                <div>231</div>
+                <div>₹5.5</div>
+                <div>₹231</div>
 
                 <div class="total" style="grid-column: span 1">Item(s) Total Value</div>
-                <div class="total">530</div>
-                <div class="total">0</div>
-                <div class="total">530</div>
+                <div class="total">₹530</div>
+                <div class="total">₹0</div>
+                <div class="total">₹530</div>
                 <div></div>
-                <div class="total">13.25</div>
+                <div class="total">₹13.25</div>
                 <div></div>
-                <div class="total">13.25</div>
-                <div class="total">556.5</div>
+                <div class="total">₹13.25</div>
+                <div class="total">₹556.5</div>
 
                 <div style="grid-column: span 1">Restaurant Packaging Charge</div>
-                <div>0</div>
-                <div>0</div>
-                <div>0</div>
-                <div></div>
-                <div>0</div>
-                <div></div>
-                <div>0</div>
-                <div>0</div>
+                <div>₹25</div>
+                <div>₹0</div>
+                <div>₹25</div>
+                <div>2.5%</div>
+                <div>₹0.625</div>
+                <div>2.5%</div>
+                <div>₹0.625</div>
+                <div>₹26.25</div>
 
                 <div class="total" style="grid-column: span 1">Total Value</div>
                 <div></div>
                 <div></div>
-                <div class="total">530</div>
+                <div class="total">₹555</div>
                 <div></div>
-                <div class="total">13.25</div>
+                <div class="total">₹13.875</div>
                 <div></div>
-                <div class="total">13.25</div>
-                <div class="total">556.5</div>
+                <div class="total">₹13.875</div>
+                <div class="total">₹583</div>
 
                 <div class="footer-section">
                     <div class="footer" style="grid-column: 1 / span 9">
-                        <strong>Amount (in words):</strong> Five Hundred Fifty Six Rupees and Fifty Paisa Only
+                        <strong>Amount (in words):</strong> Five Hundred Eighty Three Rupees Only
                     </div>
                     <div class="footer" style="grid-column: 1 / span 9; margin-top: 8px;">
-                        <strong>Amount of INR 556.5 settled through digital mode/payment received against Order ID: ZO97950243583652 dated 3rd Oct 25, 12:40 PM.</strong>
+                        Amount of <b>₹583</b> settled through digital mode/payment received against Order ID: <b>ZO97950243583652</b> dated <b>3rd Oct 25, 12:40 PM</b>.
                     </div>
                     <div class="footer" style="grid-column: 1 / span 9">
                         <strong>Supply attracts reverse charge :</strong> No
                     </div>
-                    <div class="footer" style="grid-column: 1 / span 9; margin-top: 8px;">
-                        <h4>For Zoop Web Services Private Limited</h4>
-                        <br>
-                        Zoop CIN : U72200DL2014PTC268162 Zoop PAN : AAACZ7586R Zoop GSTIN: 07AAACZ7586R1Z7
+                    <div class="footer" style="grid-column: 1 / span 9; margin-top: 8px; display: flex; justify-content: space-between; align-items: flex-start;">
+                        <div>
+                            <div>Email – care@zoopindia.com</div>
+                            <div>Phone – 8010802222</div>
+                            <div>Website – www.zoopindia.com</div>
+                            <div>Zoop PAN – AAACZ7586R</div>
+                            <div>Zoop CIN – U72200DL2014PTC268162</div>
+                            <div>ZoopGSTIN – 07AAACZ7586R1Z7</div>
+                        </div>
+                        <div style="text-align: right;">
+                            <div>For Zoop Web Services Private Limited</div>
+                            <img src="assets/signature.png" alt="Authorized Signatory" style="height: 60px; margin: 8px 0 10px; display: block; margin-left: auto;" />
+                            <strong>Authorized Signatory</strong>
+                        </div>
                     </div>
-                    <div class="footer" style="grid-column: 1 / span 9">
-                        Email – care@zoopindia.com , Phone – 8010802222, Web Site – www.ZoopIndia.com
-                    </div>
-                    <div class="signature" style="grid-column: 1 / span 9">
-                        <strong>This is an electronically generated invoice and does not require any signature.</strong>
-                    </div>
+                    <div class="signature" style="grid-column: 1 / span 9; text-align: right;"></div>
                 </div>
             </div>
         </div>
